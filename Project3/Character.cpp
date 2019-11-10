@@ -10,4 +10,4 @@
 
 
 //Pure virtual destructor
-Character::~Character() {};
+Character::~Character() {}

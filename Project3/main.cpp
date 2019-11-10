@@ -10,9 +10,8 @@
 #include <memory>
 #include "inputValidation.hpp"
 #include "Game.hpp"
-#include "die.hpp"
-#include "Vampire.hpp"
-#include "HarryPotter.hpp"
+#include "menu.hpp"
+
 
 
 int main()
@@ -21,21 +20,19 @@ int main()
 	//Downcast as unsigned int to convert to 32-bit integer
 	srand((unsigned int)time(NULL));
 
-	Game testGame;
-
-	testGame.selectChar(1, 2);
-	testGame.selectChar(2, 3);
-	
-	while (testGame.player1->getStrength() > 0 && testGame.player2->getStrength() > 0)
-	{
-		testGame.playeroneAttacks();
-		if (testGame.player2->getStrength() > 0)
-		{
-			testGame.playertwoAttacks();
-		}
-	}
-
-	//std::cout << typeid(testGame.player1).name() << std::endl;
+	Game fantasyGame;
+	menu(&fantasyGame);
+	//fantasyGame.selectChar(1, 5);
+	//fantasyGame.selectChar(2, 3);
+	//
+	//while (fantasyGame.player1->getStrength() > 0 && fantasyGame.player2->getStrength() > 0)
+	//{
+	//	fantasyGame.playeroneAttacks();
+	//	if (fantasyGame.player2->getStrength() > 0)
+	//	{
+	//		fantasyGame.playertwoAttacks();
+	//	}
+	//}
 
 
 

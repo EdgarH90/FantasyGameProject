@@ -21,8 +21,8 @@ public: //CHANGE TO PROTECTED AFTER TESTING
 	int armorPoints = 0;
 	int defensePoints = 0;
 public:
-	virtual int attack() { return 0;};
-	virtual int defense(int attackln) { return 0; };
+	virtual int attack()=0;
+	virtual void defense(int attackln)=0;
 	virtual std::string getName()=0;
 	virtual ~Character() = 0;
 	virtual int getArmor() { return armorPoints; };

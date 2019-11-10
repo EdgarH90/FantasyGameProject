@@ -20,7 +20,7 @@ public:
 	BlueMen();
 	virtual ~BlueMen() {};
 	int attack();
-	int defense(int attackIn);
+	void defense(int attackIn);
 	std::string getName();
 	int getArmor();
 	int getStrength();

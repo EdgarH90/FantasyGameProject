@@ -30,7 +30,7 @@ int Vampire::attack()
 }
 
 
-int Vampire::defense(int attackIn)
+void Vampire::defense(int attackIn)
 {
 	int damage = 0;
 	int charm = rand() % 2;
@@ -45,7 +45,8 @@ int Vampire::defense(int attackIn)
 		{
 			damage = 0;
 		}
-		std::cout << "Total damage inflicted: " << damage << std::endl;
+		std::cout << "Total damage inflicted: " << attackIn << "-" <<
+			defensePoints << "-" << armorPoints << " = " << damage << std::endl;
 	}
 	else
 	{
@@ -53,19 +54,30 @@ int Vampire::defense(int attackIn)
 	}
 
 	strengthPoints -= damage;
-	return damage;
 }
 
+/*********************************************************************
+*					Vampire::getName()
+* This function returns the name of the character.
+*********************************************************************/
 std::string Vampire::getName()
 {
 	return name;
 }
 
+/*********************************************************************
+*					Vampire::getName()
+* This function returns the armor of the character.
+*********************************************************************/
 int Vampire::getArmor()
 {
 	return armorPoints;
 }
 
+/*********************************************************************
+*					Vampire::getName()
+* This function returns the strength of the character.
+*********************************************************************/
 int Vampire::getStrength()
 {
 	return strengthPoints;

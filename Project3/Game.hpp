@@ -14,6 +14,8 @@
 #include "Vampire.hpp"
 #include "HarryPotter.hpp"
 #include "BlueMen.hpp"
+#include "Barbarian.hpp"
+#include "Medusa.hpp"
 
 class Game
 {

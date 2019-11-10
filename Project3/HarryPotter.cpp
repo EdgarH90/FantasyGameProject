@@ -33,7 +33,7 @@ int HarryPotter::attack()
 	int secondDie = charDie.rollDie();
 	attackPoints = (firstDie+secondDie);
 	std::cout <<"\n" << "Harry's attack roll: " << firstDie << "+" << secondDie
-	<< std::endl;
+		<< std::endl;
 	return attackPoints;
 }
 
@@ -45,13 +45,14 @@ int HarryPotter::attack()
 * returns an integer for the damage. It also contains the implementation
 * for the Hogwarts special ability.
 *********************************************************************/
-int HarryPotter::defense(int attackIn)
+void HarryPotter::defense(int attackIn)
 {
 	int damage = 0;
 	int firstDie = charDie.rollDie();
 	int secondDie = charDie.rollDie();
 	defensePoints = (firstDie + secondDie);
-	std::cout << "Harry's defense roll: " << defensePoints << std::endl;
+	std::cout << "\n" << "Harry's defense roll: " << firstDie << "+" << secondDie
+		<< std::endl;
 	damage = (attackIn - defensePoints - armorPoints);
 	//Make sure damage is not negative
 	if (damage < 0)
@@ -61,7 +62,9 @@ int HarryPotter::defense(int attackIn)
 
 	strengthPoints -= damage;
 
-	std::cout << "Total damage inflicted: " << damage << std::endl;
+	std::cout << "Total damage inflicted: " << attackIn << "-" <<
+		defensePoints << "-" << armorPoints << " = " << damage << std::endl;
+
 	//Check if Harry has any lives remaining if strength falls to 0 or below
 	if (livesRemaining == 1 && strengthPoints <= 0)
 	{
@@ -70,7 +73,6 @@ int HarryPotter::defense(int attackIn)
 		strengthPoints = 20;
 		livesRemaining = 0;
 	}
-	return damage;
 }
 
 

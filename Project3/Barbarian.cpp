@@ -1,144 +1,90 @@
 /*******************************************************************************
 ** Author:       Edgar Hernandez
 ** Date:         10/19/2019
-** Description:  This program contains the specification for the BlueMen class.
+** Description:  This program contains the specification for the Barbarian class.
 ** This is class is derived from the Character class. It contains two attack and
 ** defense functions that override the virtual functions in the base class.
 *******************************************************************************/
-#include "BlueMen.hpp"
+#include "Barbarian.hpp"
 
 
 /*********************************************************************
-*					BlueMen::BlueMen()
+*					Barbarian::Barbarian()
 * This is the default constructor that intializes the attributes for the
-* BlueMen character
+* Barbarian character
 *********************************************************************/
-BlueMen::BlueMen()
+Barbarian::Barbarian()
 {
-	name = "Blue Men";
-	armorPoints = 3;
+	name = "Barbarian";
+	armorPoints = 0;
 	strengthPoints = 12;
-	for (int i = 0; i < 3; i++)
-	{
-		charDie[i].setSides(6);
-	}
 }
 
 /*********************************************************************
-*					BlueMen::defense()
-* This function contains the attack function for Harry. It simulates
+*					Barbarian::defense()
+* This function contains the attack function for Barbarian. It simulates
 * the roll of 2 six-sided dice and returns the value of the attack points
 *********************************************************************/
-int BlueMen::attack()
+int Barbarian::attack()
 {
-	charDie[0].setSides(10);
-	charDie[1].setSides(10);
-	int firstDie = charDie[0].rollDie();
-	int secondDie = charDie[1].rollDie();
-	attackPoints = (firstDie+secondDie);
-	std::cout << "\n" << "Blue Men's attack roll: " << firstDie << "+" << secondDie
+	int firstDie = charDie.rollDie();
+	int secondDie = charDie.rollDie();
+	attackPoints = (firstDie + secondDie);
+	std::cout << "\n" << "Barbarian's attack roll: " << firstDie << "+" << secondDie
 		<< std::endl;
-
 	return attackPoints;
 }
 
-
 /*********************************************************************
-*					BlueMen::defense()
-* This function contains the defense function for Harry. It simulates
+*					Barbarian::defense()
+* This function contains the defense function for Barbarian. It simulates
 * the roll of 1 six-sided die, displays the damage information, and
 * returns an integer for the damage. It also contains the implementation
 * for the Hogwarts special ability.
 *********************************************************************/
-void BlueMen::defense(int attackIn)
+void Barbarian::defense(int attackIn)
 {
-	int damage = attackIn;
-
-	//Reset dice and defence points
-	for (int i = 0; i < 3; i++)
-	{
-		charDie[i].setSides(6);
-	}
-	defensePoints = 0;
-
-	//Remove one die for every four points of damage taken
-	std::cout << "Blue Men's defense roll: ";
-	int roll = 0;
-	if (strengthPoints <= 8)
-	{
-		if (strengthPoints <= 4)
-		{
-			defensePoints = charDie[0].rollDie();
-			std::cout << defensePoints << std::endl;
-		}
-		else
-		{
-			for (int i = 0; i < 2; i++)
-			{
-				roll = charDie[i].rollDie();
-				std::cout << roll;
-				if (i < 1)
-				{
-					std::cout << "+";
-				}
-				defensePoints += roll;
-			}
-			std::cout << "\n";
-		}
-	}
-	else
-	{
-		for (int i = 0; i < 3; i++)
-		{
-			roll = charDie[i].rollDie();
-			std::cout << roll;
-			if (i < 2)
-			{
-				std::cout << "+";
-			}
-			defensePoints += roll;
-		}
-		std::cout << "\n";
-	}
+	int damage = 0;
+	int firstDie = charDie.rollDie();
+	int secondDie = charDie.rollDie();
+	defensePoints = (firstDie + secondDie);
+	std::cout << "\n" << "Barbarian's defense roll: " << firstDie << "+" << secondDie
+		<< std::endl;
 	damage = (attackIn - defensePoints - armorPoints);
-
 	//Make sure damage is not negative
 	if (damage < 0)
 	{
 		damage = 0;
 	}
-
-	strengthPoints -= damage;
-
 	std::cout << "Total damage inflicted: " << attackIn << "-" <<
 		defensePoints << "-" << armorPoints << " = " << damage << std::endl;
+
+	strengthPoints -= damage;
 }
 
-
 /*********************************************************************
-*					BlueMen::getName()
+*					Barbarian::getName()
 * This function returns the name of the character.
 *********************************************************************/
-std::string BlueMen::getName()
+std::string Barbarian::getName()
 {
 	return name;
 }
 
-
 /*********************************************************************
-*					BlueMen::getName()
+*					Barbarian::getName()
 * This function returns the armor of the character.
 *********************************************************************/
-int BlueMen::getArmor()
+int Barbarian::getArmor()
 {
 	return armorPoints;
 }
 
 /*********************************************************************
-*					BlueMen::getName()
+*					Barbarian::getName()
 * This function returns the strength of the character.
 *********************************************************************/
-int BlueMen::getStrength()
+int Barbarian::getStrength()
 {
 	return strengthPoints;
 }

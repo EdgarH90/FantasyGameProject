@@ -54,9 +54,27 @@ void Game::selectChar(int playerNum, int playerChoice)
 			player2 = std::make_shared<BlueMen>();
 		}
 	}
+	else if (playerChoice == 4)
+	{
+		if (playerNum == 1)
+		{
+			player1 = std::make_shared<Barbarian>();
+		}
+		else
+		{
+			player2 = std::make_shared<Barbarian>();
+		}
+	}
 	else
 	{
-		std::cout << "temp" << std::endl;
+		if (playerNum == 1)
+		{
+			player1 = std::make_shared<Medusa>();
+		}
+		else
+		{
+			player2 = std::make_shared<Medusa>();
+		}
 	}
 }
 
@@ -67,7 +85,7 @@ void Game::playeroneAttacks()
 	" attacks "<< player2->getName() << " (Player Two)" << "!***\n" << std::endl;
 
 	//Display defender's stats
-	std::cout << player2->getName() << "'s (Defender) stats: " << std::endl;
+	std::cout << player2->getName() << "'s (Player 2 Defender) stats: " << std::endl;
 	std::cout << "Armor: " << player2->getArmor() << std::endl;
 	std::cout << "Strength: " << player2->getStrength() << std::endl;
 
@@ -75,7 +93,7 @@ void Game::playeroneAttacks()
 	int pOneAttack = player1->attack();
 
 	//Player 2 defends and takes damage
-	int pTwoDamage = player2->defense(pOneAttack);
+	player2->defense(pOneAttack);
 	
 	//Check to see if player died
 	if (player2->getStrength() > 0)
@@ -86,7 +104,7 @@ void Game::playeroneAttacks()
 	else
 	{
 		std::cout << player2->getName() << " died. " <<
-			player1->getName() << " wins! " << std::endl;
+			player1->getName() << " (Player 1) \n wins! " << std::endl;
 	}
 }
 
@@ -94,10 +112,10 @@ void Game::playertwoAttacks()
 {
 	//Display the attacker and defender types
 	std::cout << "\n***" << player2->getName() << " (Player Two)" <<
-		" attacks " << player1->getName() << " (Player One)" << "!***\n" << std::endl;
+		" attacks " << player1->getName() << " (Player One)!***\n" << std::endl;
 
 	//Display defender's stats
-	std::cout << player1->getName() << "'s (Defender) stats: " << std::endl;
+	std::cout << player1->getName() << "'s (Player 1 Defender) stats: " << std::endl;
 	std::cout << "Armor: " << player1->getArmor() << std::endl;
 	std::cout << "Strength: " << player1->getStrength() << std::endl;
 
@@ -105,7 +123,7 @@ void Game::playertwoAttacks()
 	int pTwoAttack = player2->attack();
 
 	//Player 1 defends and takes damage
-	int pTwoDamage = player1->defense(pTwoAttack);
+	player1->defense(pTwoAttack);
 
 	//Check to see if player died
 	if (player1->getStrength() > 0)
@@ -115,7 +133,7 @@ void Game::playertwoAttacks()
 	}
 	else
 	{
-		std::cout << player1->getName() << " has died. " <<
-			player2->getName() << " wins! " << std::endl;
+		std::cout << player1->getName() << " died. " <<
+			player2->getName() << " (Player 2) wins! \n " << std::endl;
 	}
 }
