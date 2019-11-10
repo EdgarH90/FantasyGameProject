@@ -3,7 +3,7 @@
 ** Date:         10/19/2019
 ** Description:  This program contains the specification for the Character class.
 ** This is an abstract base class that contains protected members for the attack,
-** strenght, armor, and defense characteristics. It contains two pure virtual 
+** strenght, armor, defense and characteristics. It contains two pure virtual 
 ** attack and defense functions to be overriden by the derived classes.
 *******************************************************************************/
 #ifndef CHARACTER_HPP
@@ -15,11 +15,12 @@
 
 class Character
 {
-public: //CHANGE TO PROTECTED AFTER TESTING
+protected:
 	int attackPoints = 0;
 	int strengthPoints = 0;
 	int armorPoints = 0;
 	int defensePoints = 0;
+	std::string name = "";
 public:
 	virtual int attack()=0;
 	virtual void defense(int attackln)=0;

@@ -2,8 +2,8 @@
 ** Author:       Edgar Hernandez
 ** Date:         10/19/2019
 ** Description:  This program contains the specification for the Medusa class.
-** This is class is derived from the Character class. It contains two attack and
-** defense functions that override the virtual functions in the base class.
+** This is class is derived from the Character class. It contains five
+** functions that override the virtual functions in the base class.
 *******************************************************************************/
 #include "Character.hpp"
 #include "die.hpp"
@@ -15,7 +15,6 @@ class Medusa :
 {
 private:
 	Die charDie;
-	std::string name;
 public:
 	Medusa();
 	virtual ~Medusa() {};

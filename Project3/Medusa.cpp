@@ -2,8 +2,8 @@
 ** Author:       Edgar Hernandez
 ** Date:         10/19/2019
 ** Description:  This program contains the specification for the Medusa class.
-** This is class is derived from the Character class. It contains two attack and
-** defense functions that override the virtual functions in the base class.
+** This is class is derived from the Character class. It contains five
+** functions that override the virtual functions in the base class.
 *******************************************************************************/
 #include "Medusa.hpp"
 
@@ -21,16 +21,17 @@ Medusa::Medusa()
 }
 
 /*********************************************************************
-*					Medusa::defense()
+*					Medusa::attack()
 * This function contains the attack function for Medusa. It simulates
-* the roll of 2 six-sided dice and returns the value of the attack points
+* the roll of 2 six-sided dice and returns the value of the attack points.
+* It also contains the implementation for the 'Glare' special ability.
 *********************************************************************/
 int Medusa::attack()
 {
 	charDie.setSides(6);
 	int firstDie = charDie.rollDie();
 	int secondDie = charDie.rollDie();
-	attackPoints = 12; //(firstDie + secondDie);
+	attackPoints = (firstDie + secondDie);
 	std::cout << "\n" << "Medusa's attack roll: " << firstDie << "+" << secondDie
 		<< std::endl;
 	if (attackPoints == 12)
@@ -44,9 +45,7 @@ int Medusa::attack()
 /*********************************************************************
 *					Medusa::defense()
 * This function contains the defense function for Medusa. It simulates
-* the roll of 1 six-sided die, displays the damage information, and
-* returns an integer for the damage. It also contains the implementation
-* for the Hogwarts special ability.
+* the roll of 1 six-sided die and displays the damage information.
 *********************************************************************/
 void Medusa::defense(int attackIn)
 {

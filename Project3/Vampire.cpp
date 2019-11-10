@@ -2,8 +2,8 @@
 ** Author:       Edgar Hernandez
 ** Date:         10/19/2019
 ** Description:  This program contains the specification for the Vampire class.
-** This is class is derived from the Character class. It contains two attack and
-** defense functions that override the virtual functions in the base class.
+** This is class is derived from the Character class. It contains five
+** functions that override the virtual functions in the base class.
 *******************************************************************************/
 #include "Vampire.hpp"
 
@@ -20,6 +20,11 @@ Vampire::Vampire()
 	strengthPoints = 18;
 }
 
+/*********************************************************************
+*					Vampire::attack()
+* This function contains the attack function for Vampire. It simulates
+* the roll of 1 twelve-sided die and returns the value of the attack points
+*********************************************************************/
 
 int Vampire::attack()
 {
@@ -29,6 +34,11 @@ int Vampire::attack()
 	return attackPoints;
 }
 
+/*********************************************************************
+*					Vampire::defense()
+* This function contains the defense function for Vampire. It simulates
+* the roll of 1 six-sided die and displays the damage information.
+*********************************************************************/
 
 void Vampire::defense(int attackIn)
 {

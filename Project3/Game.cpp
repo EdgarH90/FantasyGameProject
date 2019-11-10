@@ -78,6 +78,12 @@ void Game::selectChar(int playerNum, int playerChoice)
 	}
 }
 
+/*********************************************************************
+*					Game::playeroneAttacks()
+* This function implements the round when player one attacks first.
+* It uses the attack and defense functions from both characters to 
+* display the round stats.
+*********************************************************************/
 void Game::playeroneAttacks()
 {
 	//Display the attacker and defender types
@@ -104,10 +110,16 @@ void Game::playeroneAttacks()
 	else
 	{
 		std::cout << player2->getName() << " died. " <<
-			player1->getName() << " (Player 1) \n wins! " << std::endl;
+			player1->getName() << " (Player 1) wins! \n " << std::endl;
 	}
 }
 
+/*********************************************************************
+*					Game::playertwoAttacks()
+* This function implements the round when player two attacks first.
+* It uses the attack and defense functions from both characters to
+* display the round stats.
+*********************************************************************/
 void Game::playertwoAttacks()
 {
 	//Display the attacker and defender types
@@ -137,3 +149,21 @@ void Game::playertwoAttacks()
 			player2->getName() << " (Player 2) wins! \n " << std::endl;
 	}
 }
+
+/*********************************************************************
+*					Game::playGame()
+* This function implements the gameplay until one character dies.
+*********************************************************************/
+
+void Game::playGame()
+{
+	while (player1->getStrength() > 0 && player2->getStrength() > 0)
+	{
+		playeroneAttacks();
+		if (player2->getStrength() > 0)
+		{
+			playertwoAttacks();
+		}
+	}
+}
+

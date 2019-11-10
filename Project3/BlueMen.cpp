@@ -2,8 +2,8 @@
 ** Author:       Edgar Hernandez
 ** Date:         10/19/2019
 ** Description:  This program contains the specification for the BlueMen class.
-** This is class is derived from the Character class. It contains two attack and
-** defense functions that override the virtual functions in the base class.
+** This is class is derived from the Character class. It contains five
+** functions that override the virtual functions in the base class.
 *******************************************************************************/
 #include "BlueMen.hpp"
 
@@ -26,8 +26,8 @@ BlueMen::BlueMen()
 
 /*********************************************************************
 *					BlueMen::defense()
-* This function contains the attack function for Harry. It simulates
-* the roll of 2 six-sided dice and returns the value of the attack points
+* This function contains the defense function for BlueMen. It simulates
+* the roll of 2 ten-sided dice and displays the damage information.
 *********************************************************************/
 int BlueMen::attack()
 {
@@ -45,10 +45,9 @@ int BlueMen::attack()
 
 /*********************************************************************
 *					BlueMen::defense()
-* This function contains the defense function for Harry. It simulates
-* the roll of 1 six-sided die, displays the damage information, and
-* returns an integer for the damage. It also contains the implementation
-* for the Hogwarts special ability.
+* This function contains the defense function for Blue Men. It simulates
+* the roll of 3 six-sided dice and displays the damage information.
+* It also contains the implementation of the "Mob" special ability.
 *********************************************************************/
 void BlueMen::defense(int attackIn)
 {

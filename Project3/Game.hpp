@@ -19,8 +19,7 @@
 
 class Game
 {
-public: //MAKE PRIVATE
-	bool gameStatus = true;
+private:
 	int damage = 0;
 	std::shared_ptr<Character> player1;
 	std::shared_ptr<Character> player2;
@@ -30,6 +29,7 @@ public:
 	void selectChar(int playerNum, int playerChoice);
 	void playeroneAttacks();
 	void playertwoAttacks();
+	void playGame();
 };
 
 #endif

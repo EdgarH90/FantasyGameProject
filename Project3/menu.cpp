@@ -44,15 +44,8 @@ void menu(Game* gameIn)
 				gameIn->selectChar(i+1, userChoice);
 			}
 
-			//Play game until one character dies
-			while (gameIn->player1->getStrength() > 0 && gameIn->player2->getStrength() > 0)
-			{
-				gameIn->playeroneAttacks();
-				if (gameIn->player2->getStrength() > 0)
-				{
-					gameIn->playertwoAttacks();
-				}
-			}
+			//Play game
+			gameIn->playGame();
 		}
 
 		std::cout << "Would you like to play again? " << std::endl;

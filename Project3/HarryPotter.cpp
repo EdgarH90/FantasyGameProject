@@ -23,7 +23,7 @@ HarryPotter::HarryPotter()
 }
 
 /*********************************************************************
-*					HarryPotter::defense()
+*					HarryPotter::attack()
 * This function contains the attack function for Harry. It simulates
 * the roll of 2 six-sided dice and returns the value of the attack points
 *********************************************************************/
